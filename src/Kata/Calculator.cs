@@ -11,8 +11,14 @@ namespace Kata
             if(s=="")
                 return 0;
 
-            char[] separators = new[] {',', '\n'};
-            var numbers = s.Split(separators).Select(int.Parse).ToList();
+            
+            s = s.Replace("//", "");
+            
+            
+            char[] separators = new[] {',', '\n',';'};
+            var numbers = s.Split(separators)
+                .Where(x=> !string.IsNullOrEmpty(x))
+                .Select(x=> Convert.ToInt32(x)).ToList();
             return numbers.Sum();
         }
     }
