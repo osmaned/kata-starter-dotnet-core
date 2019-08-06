@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Kata
 {
     public class Calculator
@@ -6,7 +10,13 @@ namespace Kata
         {
             if(s=="")
                 return 0;
-            return 3;
+            
+            List<string> numbers = s.Split(',').ToList();
+
+            if (numbers.Count == 1)
+                return Convert.ToInt32(numbers.ElementAt(0));
+            else
+                return Convert.ToInt32(numbers.ElementAt(0)) + Convert.ToInt32(numbers.ElementAt(1));
         }
     }
 }
