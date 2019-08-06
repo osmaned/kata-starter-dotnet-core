@@ -18,16 +18,16 @@ namespace Kata.Spec
     }
 
     public class when_user_input_is_empty
-         {
-             Establish _context = () => { _systemUnderTest = new Calculator(); };
-     
-             Because of = () => { _result = _systemUnderTest.Add(); };
-     
-             It should_return_zero = () => { _result.Should().Be(0); };
-             static Calculator _systemUnderTest;
-             static int _result;
-         }
-    
+    {
+        Establish _context = () => { _systemUnderTest = new Calculator(); };
+
+        Because of = () => { _result = _systemUnderTest.Add(); };
+
+        It should_return_zero = () => { _result.Should().Be(0); };
+        static Calculator _systemUnderTest;
+        static int _result;
+    }
+
     public class when_user_input_is_one_number
     {
         Establish _context = () => { _systemUnderTest = new Calculator(); };
@@ -39,7 +39,17 @@ namespace Kata.Spec
         static int _result;
     }
 
-//    2. Given the user input is one number when calculating the sum then it should return the same number. (example "3" should equal 3)
+    public class when_user_input_is_two_numbers
+    {
+        Establish _context = () => { _systemUnderTest = new Calculator(); };
+
+        Because of = () => { _result = _systemUnderTest.Add("3,5"); };
+
+        It should_return_the_sum_of_the_two_numbers = () => { _result.Should().Be(8); };
+        static Calculator _systemUnderTest;
+        static int _result;
+    }
+
 //    3. Given the user input is two numbers when calculating the sum then it should return the sum of those numbers. (example "1,2" should equal 3)
 //    4. Given the user input is an unknown amount of numbers when calculating the sum then it should return the sum of all the numbers. (example "1,2,3" should equal 6)
 //    5. Given the user input is multiple numbers with new line and comma delimiters when calculating the sum then it should return the sum of all the numbers. (example "1\n2,3" should equal 6)
