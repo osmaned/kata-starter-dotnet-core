@@ -10,8 +10,9 @@ namespace Kata
         {
             if(s=="")
                 return 0;
-            
-            var numbers = s.Split(',').Select(int.Parse).ToList();
+
+            char[] separators = new[] {',', '\n'};
+            var numbers = s.Split(separators).Select(int.Parse).ToList();
             return numbers.Sum();
         }
     }
